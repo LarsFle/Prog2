@@ -7,5 +7,8 @@ public class XY {
 		x = xx;
 		y = yy;
 	}
-	
+	public void move(int nx, int ny) {
+		x += nx;
+		y += ny;
+	}
 }
