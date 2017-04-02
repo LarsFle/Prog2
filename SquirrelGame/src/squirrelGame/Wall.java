@@ -6,4 +6,5 @@ public class Wall extends Entity {
 		energy = -10;
 		pos = ipos;
 	}
+	
 }

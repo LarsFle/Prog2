@@ -6,4 +6,8 @@ public class BadPlant extends Entity {
 		energy = -100;
 		pos = ipos;
 	}
+	
+	public boolean nextStep() {
+		return true;
+	}
 }
