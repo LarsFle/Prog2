@@ -29,7 +29,6 @@ public class MasterSquirrel extends Entity {
 				pos.move(1, 0);
 				}
 			}
-		}
 		return true;
 	}
 	
