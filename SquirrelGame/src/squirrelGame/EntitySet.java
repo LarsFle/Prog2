@@ -13,7 +13,7 @@ public class EntitySet {
 	
 	public Entity checkPosition(XY pos) {
 		for(Entity unit:entityContainer) {
-			if (unit.getXY().x == pos.x && unit.getXY().y == pos.y) {
+			if (unit.getXY().getX() == pos.getX() && unit.getXY().getY() == pos.getY()) {
 				return unit;
 			}
 		}

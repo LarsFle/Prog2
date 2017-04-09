@@ -1,15 +1,15 @@
 package squirrelGame;
 
-public class Entity {
-	int id;
-	int energy;
-	XY pos;
+public abstract class Entity {
+	private int id;
+	private int energy;
+	private XY pos;
 	
 	
 	public int getId() {
 		return id;
 	}
-	public int energy() {
+	public int getEnergy() {
 		return energy;
 	}
 	public boolean updateEnergy(int amount) {
