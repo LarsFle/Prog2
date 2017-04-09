@@ -30,4 +30,8 @@ public class MasterSquirrel extends Entity {
 		return true;
 	}
 	
+	public boolean nextStep() {
+		return true;
+	}
+	
 }

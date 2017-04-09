@@ -33,5 +33,6 @@ public abstract class Entity {
 		pos = newpos;
 		return true;
 	}
-	
+
+	public abstract boolean nextStep();
 }

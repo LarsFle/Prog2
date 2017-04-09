@@ -71,4 +71,10 @@ public class EntitySet {
 			return false;
 		}
 	}
+	
+	public void update() {
+		for (Entity unit:entityContainer) {
+			unit.nextStep();
+		}
+	}
 }

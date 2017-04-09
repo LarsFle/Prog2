@@ -6,4 +6,7 @@ public class Wall extends Entity {
 		super(iid, ENERGY+ienergy, ipos);
 	}
 	
+	public boolean nextStep() {
+		return true;
+	}
 }
