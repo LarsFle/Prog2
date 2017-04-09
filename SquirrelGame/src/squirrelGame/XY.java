@@ -11,4 +11,11 @@ public class XY {
 		x += nx;
 		y += ny;
 	}
+	public int getX() {
+		return x;
+	}
+	
+	public int getY() {
+		return y;
+	}
 }
