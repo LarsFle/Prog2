@@ -1,9 +1,9 @@
 package squirrelGame;
 
 public abstract class Entity {
-	private int id;
-	private int energy;
-	private XY pos;
+	int id;
+	int energy;
+	XY pos;
 	
 	
 	public int getId() {
