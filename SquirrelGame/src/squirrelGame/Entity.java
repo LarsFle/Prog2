@@ -5,6 +5,10 @@ public abstract class Entity {
 	int energy;
 	XY pos;
 	int eid;
+	char LEFT_KEY;
+	char UP_KEY;
+	char DOWN_KEY;
+	char RIGHT_KEY;
 	
 	Entity(int iid, int ienergy, XY ipos) {
 		this.id = iid;

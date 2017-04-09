@@ -72,14 +72,44 @@ public class EntitySet {
 		}
 	}
 	
-	public void update() {
+	public void update() throws Exception {
 		for (Entity unit:entityContainer) {
 			unit.nextStep();
 			if (unit.getEId() == 1) {
-				unit.HandOperatedMasterSquirrel();
+				HandOperatedMasterSquirrel(entityContainer.indexOf(unit));
 			}
 		}
 	}
+	
+	
+	public boolean HandOperatedMasterSquirrel(int index) throws Exception {
+		char c;
+		boolean hasMoved = false;
+		Entity squirrel = entityContainer.get(index);
+		while (( c = (char)System.in.read()) != '\n') {
+			if (!hasMoved) {
+			if (c == squirrel.LEFT_KEY) {
+				squirrel.pos = squirrel.pos.move(-1, 0);
+				hasMoved = true;
+				} else if (c == squirrel.UP_KEY) {
+					squirrel.pos = squirrel.pos.move(0, -1);
+					hasMoved = true;
+				} else if (c == squirrel.DOWN_KEY) {
+					squirrel.pos = squirrel.pos.move(0, 1);
+					hasMoved = true;
+				} else if (c == squirrel.RIGHT_KEY) {
+					squirrel.pos = squirrel.pos.move(1, 0);
+					hasMoved = true;
+				}
+			}
+		}
+		return true;
+	}
+	
+	
+	
+	
+	
 	
 	public void printWorld() {
 		char[][] fieldArray = new char[12][12];
@@ -111,7 +141,7 @@ public class EntitySet {
 				break;
 				
 			}
-			fieldArray[unit.getXY().getX()][unit.getXY().getY()] = symbol;
+			fieldArray[unit.getXY().getY()][unit.getXY().getX()] = symbol;
 		}
 		for (char[] row:fieldArray) {
 			for (char sym:row) {

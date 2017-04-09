@@ -2,7 +2,7 @@ package squirrelGame;
 
 public class Main {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
     EntitySet world = new EntitySet();
     // generiere eine 10x10 Wand aufm Spielfeld
     {
@@ -89,6 +89,7 @@ public class Main {
     while(laufcheck) {
     	
     	world.update();
+    	world.printWorld();
     }
 	}
 

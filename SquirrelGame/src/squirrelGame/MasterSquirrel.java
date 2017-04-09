@@ -1,10 +1,7 @@
 package squirrelGame;
 
 public class MasterSquirrel extends Entity {
-	final char LEFT_KEY;
-	final char UP_KEY;
-	final char DOWN_KEY;
-	final char RIGHT_KEY;
+
 	private static final int EID = 1;
 	private static final int ENERGY = 1000;
 	
@@ -16,7 +13,7 @@ public class MasterSquirrel extends Entity {
 		DOWN_KEY = DOWNKEY;
 		RIGHT_KEY = RIGHTKEY;
 	}
-	
+/*
 	public boolean HandOperatedMasterSquirrel() throws Exception {
 		char c;
 		while (( c = (char)System.in.read()) != '\n') {
@@ -32,7 +29,7 @@ public class MasterSquirrel extends Entity {
 			}
 		return true;
 	}
-	
+*/
 	public boolean nextStep(){
 		return true;
 	}
