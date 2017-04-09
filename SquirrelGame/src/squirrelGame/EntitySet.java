@@ -10,16 +10,21 @@ public class EntitySet {
 		entityContainer = new ArrayList<Entity>();
 	}
 	
-	
 	public int checkPosition(XY pos) {
 		for(Entity unit:entityContainer) {
 			if (unit.getXY().getX() == pos.getX() && unit.getXY().getY() == pos.getY()) {
-				return unit.getId();
+				return entityContainer.indexOf(unit);
 			}
 		}
 		return -1;
 	}
 	
+	public void collectEntity(int mastersquirrelindex, int collectindex) {
+		Entity mastersquirrel = entityContainer.get(mastersquirrelindex);
+		Entity collection = entityContainer.get(collectindex);
+		mastersquirrel.updateEnergy(collection.getEnergy());
+		removeEntity(collection.id);
+	}
 	
 	public boolean addEntity(int type, XY pos) {
 		if (checkPosition(pos) == -1) {
@@ -57,6 +62,7 @@ public class EntitySet {
 			return false;
 		}
 	}
+	
 	public boolean removeEntity(int id) {
 		int target = -1;
 		for (Entity unit:entityContainer) {
@@ -81,7 +87,6 @@ public class EntitySet {
 		}
 	}
 	
-	
 	public boolean HandOperatedMasterSquirrel(int index) throws Exception {
 		char c;
 		boolean hasMoved = false;
@@ -105,11 +110,6 @@ public class EntitySet {
 		}
 		return true;
 	}
-	
-	
-	
-	
-	
 	
 	public void printWorld() {
 		char[][] fieldArray = new char[12][12];
@@ -156,7 +156,5 @@ public class EntitySet {
 		System.out.println("O : GoodBeast");
 		System.out.println("X : BadBeast");
 	}
-	
-	
 	
 }
