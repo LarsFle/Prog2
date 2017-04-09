@@ -4,6 +4,7 @@ public abstract class Entity {
 	int id;
 	int energy;
 	XY pos;
+	int eid;
 	
 	Entity(int iid, int ienergy, XY ipos) {
 		this.id = iid;
@@ -29,6 +30,11 @@ public abstract class Entity {
 	public XY getXY() {
 		return pos;
 	}
+	
+	public int getEId() {
+		return eid;
+	}
+	
 	public boolean setXY(XY newpos) {
 		pos = newpos;
 		return true;

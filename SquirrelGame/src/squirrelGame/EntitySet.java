@@ -11,18 +11,18 @@ public class EntitySet {
 	}
 	
 	
-	public Entity checkPosition(XY pos) {
+	public int checkPosition(XY pos) {
 		for(Entity unit:entityContainer) {
 			if (unit.getXY().getX() == pos.getX() && unit.getXY().getY() == pos.getY()) {
-				return unit;
+				return unit.getId();
 			}
 		}
-		return null;
+		return -1;
 	}
 	
 	
 	public boolean addEntity(int type, XY pos) {
-		if (checkPosition(pos) != null) {
+		if (checkPosition(pos) == -1) {
 			Entity newentity;
 			switch (type) {
 			default:
@@ -75,6 +75,58 @@ public class EntitySet {
 	public void update() {
 		for (Entity unit:entityContainer) {
 			unit.nextStep();
+			if (unit.getEId() == 1) {
+				unit.HandOperatedMasterSquirrel();
+			}
 		}
 	}
+	
+	public void printWorld() {
+		char[][] fieldArray = new char[12][12];
+		for (Entity unit:entityContainer) {
+			char symbol = '#';
+			switch (unit.getEId()) {
+			default:
+				symbol = '#';
+				break;
+
+			case 1:
+				symbol = 'S';
+				break;
+				
+			case 2:
+				symbol = '+';
+				break;
+				
+			case 3:
+				symbol = 'f';
+				break;
+				
+			case 4:
+				symbol = 'O';
+				break;
+				
+			case 5:
+				symbol = 'X';
+				break;
+				
+			}
+			fieldArray[unit.getXY().getX()][unit.getXY().getY()] = symbol;
+		}
+		for (char[] row:fieldArray) {
+			for (char sym:row) {
+				System.out.print(sym);
+			}
+			System.out.println();
+		}
+		System.out.println("# : Wand");
+		System.out.println("S : Spieler");
+		System.out.println("+ : GoodPlant");
+		System.out.println("f : BadPlant");
+		System.out.println("O : GoodBeast");
+		System.out.println("X : BadBeast");
+	}
+	
+	
+	
 }

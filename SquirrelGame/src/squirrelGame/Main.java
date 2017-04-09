@@ -5,6 +5,7 @@ public class Main {
 	public static void main(String[] args) {
     EntitySet world = new EntitySet();
     // generiere eine 10x10 Wand aufm Spielfeld
+    {
     world.addEntity(0, new XY(0,0));
     world.addEntity(0, new XY(1,0));
     world.addEntity(0, new XY(2,0));
@@ -45,39 +46,50 @@ public class Main {
     world.addEntity(0, new XY(9,7));
     world.addEntity(0, new XY(9,8));
     world.addEntity(0, new XY(9,9));
+// Erzeuge das SpielerSquirrel
+    world.addEntity(1, new XY(8,8));
 // Erzeuge jeweils 5 von jeder Art von NPC-Entity + 10 zufällige Wände
-    world.addEntity(0, new XY((int)Math.random()*9,(int)Math.random()*9));
-    world.addEntity(0, new XY((int)Math.random()*9,(int)Math.random()*9));
-    world.addEntity(0, new XY((int)Math.random()*9,(int)Math.random()*9));
-    world.addEntity(0, new XY((int)Math.random()*9,(int)Math.random()*9));
-    world.addEntity(0, new XY((int)Math.random()*9,(int)Math.random()*9));
-    world.addEntity(0, new XY((int)Math.random()*9,(int)Math.random()*9));
-    world.addEntity(0, new XY((int)Math.random()*9,(int)Math.random()*9));
-    world.addEntity(0, new XY((int)Math.random()*9,(int)Math.random()*9));
-    world.addEntity(0, new XY((int)Math.random()*9,(int)Math.random()*9));
-    world.addEntity(0, new XY((int)Math.random()*9,(int)Math.random()*9));
+    world.addEntity(0, new XY((int)(Math.random()*9),(int)(Math.random()*9)));
+    world.addEntity(0, new XY((int)(Math.random()*9),(int)(Math.random()*9)));
+    world.addEntity(0, new XY((int)(Math.random()*9),(int)(Math.random()*9)));
+    world.addEntity(0, new XY((int)(Math.random()*9),(int)(Math.random()*9)));
+    world.addEntity(0, new XY((int)(Math.random()*9),(int)(Math.random()*9)));
+    world.addEntity(0, new XY((int)(Math.random()*9),(int)(Math.random()*9)));
+    world.addEntity(0, new XY((int)(Math.random()*9),(int)(Math.random()*9)));
+    world.addEntity(0, new XY((int)(Math.random()*9),(int)(Math.random()*9)));
+    world.addEntity(0, new XY((int)(Math.random()*9),(int)(Math.random()*9)));
+    world.addEntity(0, new XY((int)(Math.random()*9),(int)(Math.random()*9)));
     
-    world.addEntity(2, new XY((int)Math.random()*9,(int)Math.random()*9));
-    world.addEntity(2, new XY((int)Math.random()*9,(int)Math.random()*9));
-    world.addEntity(2, new XY((int)Math.random()*9,(int)Math.random()*9));
-    world.addEntity(2, new XY((int)Math.random()*9,(int)Math.random()*9));
-    world.addEntity(2, new XY((int)Math.random()*9,(int)Math.random()*9));
-    world.addEntity(3, new XY((int)Math.random()*9,(int)Math.random()*9));
-    world.addEntity(3, new XY((int)Math.random()*9,(int)Math.random()*9));
-    world.addEntity(3, new XY((int)Math.random()*9,(int)Math.random()*9));
-    world.addEntity(3, new XY((int)Math.random()*9,(int)Math.random()*9));
-    world.addEntity(3, new XY((int)Math.random()*9,(int)Math.random()*9));
-    world.addEntity(4, new XY((int)Math.random()*9,(int)Math.random()*9));
-    world.addEntity(4, new XY((int)Math.random()*9,(int)Math.random()*9));
-    world.addEntity(4, new XY((int)Math.random()*9,(int)Math.random()*9));
-    world.addEntity(4, new XY((int)Math.random()*9,(int)Math.random()*9));
-    world.addEntity(4, new XY((int)Math.random()*9,(int)Math.random()*9));
-    world.addEntity(5, new XY((int)Math.random()*9,(int)Math.random()*9));
-    world.addEntity(5, new XY((int)Math.random()*9,(int)Math.random()*9));
-    world.addEntity(5, new XY((int)Math.random()*9,(int)Math.random()*9));
-    world.addEntity(5, new XY((int)Math.random()*9,(int)Math.random()*9));
-    world.addEntity(5, new XY((int)Math.random()*9,(int)Math.random()*9));
+    world.addEntity(2, new XY((int)(Math.random()*9),(int)(Math.random()*9)));
+    world.addEntity(2, new XY((int)(Math.random()*9),(int)(Math.random()*9)));
+    world.addEntity(2, new XY((int)(Math.random()*9),(int)(Math.random()*9)));
+    world.addEntity(2, new XY((int)(Math.random()*9),(int)(Math.random()*9)));
+    world.addEntity(2, new XY((int)(Math.random()*9),(int)(Math.random()*9)));
     
+    world.addEntity(3, new XY((int)(Math.random()*9),(int)(Math.random()*9)));
+    world.addEntity(3, new XY((int)(Math.random()*9),(int)(Math.random()*9)));
+    world.addEntity(3, new XY((int)(Math.random()*9),(int)(Math.random()*9)));
+    world.addEntity(3, new XY((int)(Math.random()*9),(int)(Math.random()*9)));
+    world.addEntity(3, new XY((int)(Math.random()*9),(int)(Math.random()*9)));
+    
+    world.addEntity(4, new XY((int)(Math.random()*9),(int)(Math.random()*9)));
+    world.addEntity(4, new XY((int)(Math.random()*9),(int)(Math.random()*9)));
+    world.addEntity(4, new XY((int)(Math.random()*9),(int)(Math.random()*9)));
+    world.addEntity(4, new XY((int)(Math.random()*9),(int)(Math.random()*9)));
+    world.addEntity(4, new XY((int)(Math.random()*9),(int)(Math.random()*9)));
+    
+    world.addEntity(5, new XY((int)(Math.random()*9),(int)(Math.random()*9)));
+    world.addEntity(5, new XY((int)(Math.random()*9),(int)(Math.random()*9)));
+    world.addEntity(5, new XY((int)(Math.random()*9),(int)(Math.random()*9)));
+    world.addEntity(5, new XY((int)(Math.random()*9),(int)(Math.random()*9)));
+    world.addEntity(5, new XY((int)(Math.random()*9),(int)(Math.random()*9)));
+    }
+    world.printWorld();
+    boolean laufcheck = true;
+    while(laufcheck) {
+    	
+    	world.update();
+    }
 	}
 
 }
