@@ -26,27 +26,27 @@ public class EntitySet {
 			Entity newentity;
 			switch (type) {
 			default:
-				newentity = new Wall(idCount, pos);
+				newentity = new Wall(idCount, 0, pos);
 				break;
 
 			case 1:
-				newentity = new MasterSquirrel(idCount, pos, 'w', 'a', 's', 'd');
+				newentity = new MasterSquirrel(idCount, 0, pos, 'w', 'a', 's', 'd');
 				break;
 				
 			case 2:
-				newentity = new GoodPlant(idCount, pos);
+				newentity = new GoodPlant(idCount, 0, pos);
 				break;
 				
 			case 3:
-				newentity = new BadPlant(idCount, pos);
+				newentity = new BadPlant(idCount, 0, pos);
 				break;
 				
 			case 4:
-				newentity = new GoodBeast(idCount, pos);
+				newentity = new GoodBeast(idCount, 0, pos);
 				break;
 				
 			case 5:
-				newentity = new BadBeast(idCount, pos);
+				newentity = new BadBeast(idCount, 0, pos);
 				break;
 				
 			}

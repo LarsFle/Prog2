@@ -1,10 +1,9 @@
 package squirrelGame;
 
 public class BadBeast extends Entity {
-	public BadBeast(int iid, XY ipos) {
-		id = iid;
-		energy = -150;
-		pos = ipos;
+	private static final int ENERGY = -10;
+	public BadBeast(int iid, int ienergy, XY ipos) {
+		super(iid, ENERGY+ienergy, ipos);
 	}
 	
 	public boolean nextStep() {

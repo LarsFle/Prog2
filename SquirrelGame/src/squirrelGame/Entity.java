@@ -5,6 +5,11 @@ public abstract class Entity {
 	int energy;
 	XY pos;
 	
+	Entity(int iid, int ienergy, XY ipos) {
+		this.id = iid;
+		this.energy = ienergy;
+		this.pos = ipos;
+	}
 	
 	public int getId() {
 		return id;

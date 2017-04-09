@@ -5,11 +5,9 @@ public class MasterSquirrel extends Entity {
 	final char UP_KEY;
 	final char DOWN_KEY;
 	final char RIGHT_KEY;
-	
-	public MasterSquirrel(int iid, XY ipos, char UPKEY, char LEFTKEY, char DOWNKEY, char RIGHTKEY) {
-		id = iid;
-		energy = 1000;
-		pos = ipos;
+	private static final int ENERGY = -10;
+	public MasterSquirrel(int iid, int ienergy, XY ipos, char UPKEY, char LEFTKEY, char DOWNKEY, char RIGHTKEY) {
+		super(iid, ENERGY+ienergy, ipos);
 		LEFT_KEY = LEFTKEY;
 		UP_KEY = UPKEY;
 		DOWN_KEY = DOWNKEY;

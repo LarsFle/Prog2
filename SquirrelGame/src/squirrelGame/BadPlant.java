@@ -1,10 +1,9 @@
 package squirrelGame;
 
 public class BadPlant extends Entity {
-	public BadPlant(int iid, XY ipos) {
-		id = iid;
-		energy = -100;
-		pos = ipos;
+	private static final int ENERGY = -10;
+	public BadPlant(int iid, int ienergy, XY ipos) {
+		super(iid, ENERGY+ienergy, ipos);
 	}
 	
 	public boolean nextStep() {
