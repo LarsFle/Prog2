@@ -56,6 +56,19 @@ public class EntitySet {
 		} else { 
 			return false;
 		}
-		
+	}
+	public boolean removeEntity(int id) {
+		int target = -1;
+		for (Entity unit:entityContainer) {
+			if (unit.getId() == id) {
+				target = entityContainer.indexOf(unit);
+			}
+		}
+		if (target != -1) {
+			entityContainer.remove(target);
+			return true;
+		} else {
+			return false;
+		}
 	}
 }

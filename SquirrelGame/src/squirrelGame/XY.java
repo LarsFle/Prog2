@@ -1,6 +1,6 @@
 package squirrelGame;
 
-public class XY {
+public final class XY {
 	final private int x;
 	final private int y;
 	public XY(int xx, int yy) {
