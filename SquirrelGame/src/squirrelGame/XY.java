@@ -1,15 +1,15 @@
 package squirrelGame;
 
 public class XY {
-	private int x;
-	private int y;
+	final private int x;
+	final private int y;
 	public XY(int xx, int yy) {
 		x = xx;
 		y = yy;
 	}
-	public void move(int nx, int ny) {
-		x += nx;
-		y += ny;
+	public XY move(int nx, int ny) {
+		XY newpos = new XY(x+nx, y+ny);
+		return newpos;
 	}
 	public int getX() {
 		return x;

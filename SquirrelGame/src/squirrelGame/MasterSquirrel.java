@@ -18,13 +18,13 @@ public class MasterSquirrel extends Entity {
 		char c;
 		while (( c = (char)System.in.read()) != '\n') {
 			if (c == LEFT_KEY) {
-				pos.move(-1, 0);
+				pos = pos.move(-1, 0);
 				} else if (c == UP_KEY) {
-				pos.move(0, -1);;
+				pos = pos.move(0, -1);;
 				} else if (c == DOWN_KEY) {
-				pos.move(0, 1);
+				pos = pos.move(0, 1);
 				} else if (c == RIGHT_KEY) {
-				pos.move(1, 0);
+				pos = pos.move(1, 0);
 				}
 			}
 		return true;
