@@ -10,10 +10,19 @@ public class EntitySet {
 		entityContainer = new ArrayList<Entity>();
 	}
 	
-	public int checkPosition(XY pos) {
+	public int getPositionIndex(XY pos) {
 		for(Entity unit:entityContainer) {
 			if (unit.getXY().getX() == pos.getX() && unit.getXY().getY() == pos.getY()) {
 				return entityContainer.indexOf(unit);
+			}
+		}
+		return -1;
+	}
+	
+	public int getPositionEId(XY pos) {
+		for(Entity unit:entityContainer) {
+			if (unit.getXY().getX() == pos.getX() && unit.getXY().getY() == pos.getY()) {
+				return unit.getEId();
 			}
 		}
 		return -1;
@@ -23,11 +32,11 @@ public class EntitySet {
 		Entity mastersquirrel = entityContainer.get(mastersquirrelindex);
 		Entity collection = entityContainer.get(collectindex);
 		mastersquirrel.updateEnergy(collection.getEnergy());
-		removeEntity(collection.id);
+		removeEntity(collectindex);
 	}
 	
 	public boolean addEntity(int type, XY pos) {
-		if (checkPosition(pos) == -1) {
+		if (getPositionIndex(pos) == -1) {
 			Entity newentity;
 			switch (type) {
 			default:
@@ -63,27 +72,21 @@ public class EntitySet {
 		}
 	}
 	
-	public boolean removeEntity(int id) {
-		int target = -1;
-		for (Entity unit:entityContainer) {
-			if (unit.getId() == id) {
-				target = entityContainer.indexOf(unit);
-			}
+	public void removeEntity(int index) {
+		entityContainer.remove(index);
 		}
-		if (target != -1) {
-			entityContainer.remove(target);
-			return true;
-		} else {
-			return false;
-		}
-	}
+		
 	
 	public void update() throws Exception {
+		List<Integer> handOperatedList = new ArrayList<Integer>();
 		for (Entity unit:entityContainer) {
 			unit.nextStep();
 			if (unit.getEId() == 1) {
-				HandOperatedMasterSquirrel(entityContainer.indexOf(unit));
+				handOperatedList.add(entityContainer.indexOf(unit));
 			}
+		}
+		for (int unit:handOperatedList) {
+			HandOperatedMasterSquirrel(unit);
 		}
 	}
 	
@@ -91,22 +94,36 @@ public class EntitySet {
 		char c;
 		boolean hasMoved = false;
 		Entity squirrel = entityContainer.get(index);
+		XY newXY = new XY(squirrel.pos.getX(), squirrel.pos.getY());
 		while (( c = (char)System.in.read()) != '\n') {
 			if (!hasMoved) {
+				
 			if (c == squirrel.LEFT_KEY) {
-				squirrel.pos = squirrel.pos.move(-1, 0);
+				newXY = new XY(squirrel.pos.getX()-1, squirrel.pos.getY());
 				hasMoved = true;
 				} else if (c == squirrel.UP_KEY) {
-					squirrel.pos = squirrel.pos.move(0, -1);
+					newXY = new XY(squirrel.pos.getX(), squirrel.pos.getY()-1);
 					hasMoved = true;
 				} else if (c == squirrel.DOWN_KEY) {
-					squirrel.pos = squirrel.pos.move(0, 1);
+					newXY = new XY(squirrel.pos.getX(), squirrel.pos.getY()+1);
 					hasMoved = true;
 				} else if (c == squirrel.RIGHT_KEY) {
-					squirrel.pos = squirrel.pos.move(1, 0);
+					newXY = new XY(squirrel.pos.getX()+1, squirrel.pos.getY());
 					hasMoved = true;
 				}
 			}
+		}
+		if (hasMoved) {
+		int targetEntity = getPositionEId(newXY);
+		if (targetEntity == 0) {
+			return false;
+		} else if (targetEntity == -1) {
+			squirrel.pos = newXY;
+		} else if (targetEntity != -1) {
+			collectEntity(index, getPositionIndex(newXY));
+			squirrel.pos = newXY;
+			
+		}
 		}
 		return true;
 	}

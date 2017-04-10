@@ -31,6 +31,7 @@ public class MasterSquirrel extends Entity {
 	}
 */
 	public boolean nextStep(){
+		System.out.println("Dieses Eichhörnchen hat " + energy + " Energie");
 		return true;
 	}
 	
