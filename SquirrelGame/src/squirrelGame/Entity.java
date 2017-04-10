@@ -1,19 +1,33 @@
 package squirrelGame;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public abstract class Entity {
-	int id;
-	int energy;
-	XY pos;
-	int eid;
-	char LEFT_KEY;
-	char UP_KEY;
-	char DOWN_KEY;
-	char RIGHT_KEY;
+	private int id;
+	private int energy;
+	private XY pos;
+	private int eid;
 	
 	Entity(int iid, int ienergy, XY ipos) {
 		this.id = iid;
 		this.energy = ienergy;
 		this.pos = ipos;
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		if (obj != null && obj instanceof Entity) {
+			if (this.id == ((Entity)(obj)).getId()) {
+			return true;
+			}
+		}
+		return false;
+	}
+	
+	@Override
+	public String toString() {
+		return "EID: " + eid + "| Energie: " + energy + "|ID: " + id;
 	}
 	
 	public int getId() {

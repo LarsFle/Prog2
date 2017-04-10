@@ -7,7 +7,7 @@ public class EntitySet {
 	int idCount = 1;
 	
 	public EntitySet() {
-		entityContainer = new ArrayList<Entity>();
+		entityContainer = new ArrayList<Entity>(); // ins Array
 	}
 	
 	public int getPositionIndex(XY pos) {
@@ -35,32 +35,36 @@ public class EntitySet {
 		removeEntity(collectindex);
 	}
 	
-	public boolean addEntity(int type, XY pos) {
+	public boolean addEntity(int type, XY pos, int ne) {
 		if (getPositionIndex(pos) == -1) {
 			Entity newentity;
 			switch (type) {
 			default:
-				newentity = new Wall(idCount, 0, pos);
+				newentity = new Wall(idCount, ne, pos);
 				break;
 
 			case 1:
-				newentity = new MasterSquirrel(idCount, 0, pos, 'w', 'a', 's', 'd');
+				newentity = new MasterSquirrel(idCount, ne, pos, 'w', 'a', 's', 'd', 'x');
 				break;
 				
 			case 2:
-				newentity = new GoodPlant(idCount, 0, pos);
+				newentity = new GoodPlant(idCount, ne, pos);
 				break;
 				
 			case 3:
-				newentity = new BadPlant(idCount, 0, pos);
+				newentity = new BadPlant(idCount, ne, pos);
 				break;
 				
 			case 4:
-				newentity = new GoodBeast(idCount, 0, pos);
+				newentity = new GoodBeast(idCount, ne, pos);
 				break;
 				
 			case 5:
-				newentity = new BadBeast(idCount, 0, pos);
+				newentity = new BadBeast(idCount, ne, pos);
+				break;
+				
+			case 6:
+				newentity = new MiniSquirrel(idCount, ne, pos);
 				break;
 				
 			}
@@ -72,8 +76,9 @@ public class EntitySet {
 		}
 	}
 	
-	public void removeEntity(int index) {
-		entityContainer.remove(index);
+	public void removeEntity(Entity unit) { // entsprechend umändern
+		
+		entityContainer.remove();
 		}
 		
 	
@@ -90,13 +95,20 @@ public class EntitySet {
 		}
 	}
 	
-	public boolean HandOperatedMasterSquirrel(int index) throws Exception {
+	public boolean HandOperatedMasterSquirrel(int index) throws Exception { // ineigene Klasse einbauen + Eichörnchen vererben
 		char c;
 		boolean hasMoved = false;
 		Entity squirrel = entityContainer.get(index);
 		XY newXY = new XY(squirrel.pos.getX(), squirrel.pos.getY());
 		while (( c = (char)System.in.read()) != '\n') {
 			if (!hasMoved) {
+				if (c == squirrel.SQUIRREL_KEY) {
+					Entity newentity = new MiniSquirrel(squirrel.getId(), 100, newXY);
+					entityContainer.add(newentity);
+					squirrel.minis.add(idCount);
+					squirrel.updateEnergy(-100);
+				}
+				
 				
 			if (c == squirrel.LEFT_KEY) {
 				newXY = new XY(squirrel.pos.getX()-1, squirrel.pos.getY());
@@ -155,6 +167,10 @@ public class EntitySet {
 				
 			case 5:
 				symbol = 'X';
+				break;
+				
+			case 6:
+				symbol = 's';
 				break;
 				
 			}
